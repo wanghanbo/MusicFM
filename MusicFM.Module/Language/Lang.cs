@@ -22,17 +22,32 @@ namespace MusicFM.Module.Language
         public const string BO_PEOPLE_GENDER = "性别";
         public const string BO_PEOPLE_BIRTHDAY = "生日";
         public const string BO_PEOPLE_NAME_REQIURED = "必须输入名字";
+        public const string BO_PEOPLE_ID_REQIURED = "必须输入ID";
 
         public const string BO_USER = "用户";
         public const string BO_USER_CREATEON = "注册日期";
         public const string BO_USER_LASTLOGINON = "最后登陆日期";
         public const string BO_USER_LASTMODIFYON = "最后修改日期";
         public const string BO_USER_SIGN = "签名";
+        public const string BO_USER_USERACCOUNTBINDINGS = "账号绑定";
+        public const string BO_USER_SONGPLAYRECORD = "播放记录";
 
         public const string BO_ARTIST = "艺术家";
         public const string BO_ARTIST_BRIEF = "简介";
 
         public const string BO_SONG = "歌曲";
         public const string BO_SONG_TITLE = "标题";
+
+        public const string BO_USERACCOUNT_BINDING = "账户绑定";
+        public const string BO_USERACCOUNT_PLATFORM = "平台名称";
+        public const string BO_USERACCOUNT_ID = "ID";
+        public const string BO_USERACCOUNT_ISAUTHENTICATED = "已认证";
+
+        public const string ENUM_ACCOUNTPLATFORM_WECHAT = "微信";
+        public const string ENUM_ACCOUNTPLATFORM_SINAWEIBO = "新浪微博";
+        public const string ENUM_ACCOUNTPLATFORM_QQ = "QQ账号";
+
+        public const string BO_USERPLAYERSONGRECORD = "播放记录";
+        public const string BO_USERPLAYERSONGRECORD_PLAYDATE = "播放日期";
     }
 }

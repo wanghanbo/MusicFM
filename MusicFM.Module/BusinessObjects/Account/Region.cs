@@ -22,6 +22,7 @@ namespace MusicFM.Module.BusinessObjects.Account
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
     [ModelDefault("Caption", Lang.BO_REGION)]
+    [NavigationItem(false)]
     public class Region : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         public Region(Session session)
@@ -37,10 +38,12 @@ namespace MusicFM.Module.BusinessObjects.Account
         [ModelDefault("Caption", Lang.BO_REGION_REGIONNAME)]
         public string RegionName { get; set; }
 
+        [Browsable(false)]
         [ModelDefault("Caption", Lang.BO_REGION_PARENT)]
         [Association]
         public Region Parent { get; set; }
 
+        [Browsable(false)]
         [ModelDefault("Caption", Lang.BO_REGION_CHILDREN)]
         [Association]
         public XPCollection<Region> Children

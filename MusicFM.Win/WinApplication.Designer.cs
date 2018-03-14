@@ -27,7 +27,14 @@
             this.module2 = new DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule();
             this.module3 = new MusicFM.Module.MusicFMModule();
             this.module4 = new MusicFM.Module.Win.MusicFMWindowsFormsModule();
+            this.validationModule1 = new DevExpress.ExpressApp.Validation.ValidationModule();
+            this.validationWindowsFormsModule1 = new DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            // 
+            // validationModule1
+            // 
+            this.validationModule1.AllowValidationDetailsAccess = true;
+            this.validationModule1.IgnoreWarningAndInformationRules = false;
             // 
             // MusicFMWindowsFormsApplication
             // 
@@ -37,10 +44,11 @@
             this.Modules.Add(this.module2);
             this.Modules.Add(this.module3);
             this.Modules.Add(this.module4);
+            this.Modules.Add(this.validationModule1);
+            this.Modules.Add(this.validationWindowsFormsModule1);
             this.UseOldTemplates = false;
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.MusicFMWindowsFormsApplication_DatabaseVersionMismatch);
             this.CustomizeLanguagesList += new System.EventHandler<DevExpress.ExpressApp.CustomizeLanguagesListEventArgs>(this.MusicFMWindowsFormsApplication_CustomizeLanguagesList);
-
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -51,5 +59,7 @@
         private DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule module2;
         private MusicFM.Module.MusicFMModule module3;
         private MusicFM.Module.Win.MusicFMWindowsFormsModule module4;
+        private DevExpress.ExpressApp.Validation.ValidationModule validationModule1;
+        private DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule validationWindowsFormsModule1;
     }
 }

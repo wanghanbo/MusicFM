@@ -12,6 +12,7 @@ namespace MusicFM.Module.BusinessObjects.Account
 {
     [DefaultClassOptions]
     [NavigationItem(false)]
+    [DefaultProperty("ID")]
     public class People : BaseObject
     {
         public People(Session session)
@@ -22,8 +23,15 @@ namespace MusicFM.Module.BusinessObjects.Account
         public override void AfterConstruction()
         {
             base.AfterConstruction();
+
+            //todo : Create Unique ID
         }
 
+        [RuleUniqueValue("", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
+        [ModelDefault("AllowEdit", "false")]
+        public string ID { get; private set; }
+
+        [RuleUniqueValue("", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
         [RuleRequiredField("Rule_People_Name", DefaultContexts.Save, Lang.BO_PEOPLE_NAME_REQIURED)]
         [ModelDefault("Caption", Lang.BO_PEOPLE_NAME)]
         public string Name { get; set; }
