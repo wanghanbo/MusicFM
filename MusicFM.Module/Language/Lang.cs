@@ -21,6 +21,7 @@ namespace MusicFM.Module.Language
         public const string BO_PEOPLE_NAME = "名称";
         public const string BO_PEOPLE_GENDER = "性别";
         public const string BO_PEOPLE_BIRTHDAY = "生日";
+        public const string BO_PEOPLE_NAME_REQIURED = "必须输入名字";
 
         public const string BO_USER = "用户";
         public const string BO_USER_CREATEON = "注册日期";

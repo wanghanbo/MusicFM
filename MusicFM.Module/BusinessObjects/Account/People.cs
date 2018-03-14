@@ -1,6 +1,7 @@
 ﻿using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
+using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using MusicFM.Module.BusinessObjects.Enum;
 using MusicFM.Module.Language;
@@ -10,7 +11,7 @@ using System.ComponentModel;
 namespace MusicFM.Module.BusinessObjects.Account
 {
     [DefaultClassOptions]
-    [Browsable(false)]
+    [NavigationItem(false)]
     public class People : BaseObject
     {
         public People(Session session)
@@ -23,6 +24,7 @@ namespace MusicFM.Module.BusinessObjects.Account
             base.AfterConstruction();
         }
 
+        [RuleRequiredField("Rule_People_Name", DefaultContexts.Save, Lang.BO_PEOPLE_NAME_REQIURED)]
         [ModelDefault("Caption", Lang.BO_PEOPLE_NAME)]
         public string Name { get; set; }
 
