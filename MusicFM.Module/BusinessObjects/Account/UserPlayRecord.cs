@@ -16,6 +16,8 @@ namespace MusicFM.Module.BusinessObjects.Record
     [DefaultClassOptions]
     [ModelDefault("Caption", Lang.BO_USERPLAYERSONGRECORD)]
     [NavigationItem(false)]
+    [CreatableItem(false)]
+    [DefaultProperty("PlayDate")]
     public class SongPlayRecord : BaseObject
     {
         public SongPlayRecord(Session session)
@@ -30,6 +32,7 @@ namespace MusicFM.Module.BusinessObjects.Record
         }
 
         [Browsable(false)]
+        [ModelDefault("Capiton", Lang.BO_USER)]
         [Association]
         public User User { get; set; }
 

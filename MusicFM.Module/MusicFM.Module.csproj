@@ -83,15 +83,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\Account\Artist.cs" />
-    <Compile Include="BusinessObjects\Account\People.cs" />
-    <Compile Include="BusinessObjects\Account\Region.cs" />
+    <Compile Include="BusinessObjects\Base\People.cs" />
+    <Compile Include="BusinessObjects\Info\Comment.cs" />
+    <Compile Include="BusinessObjects\Info\Company.cs" />
+    <Compile Include="BusinessObjects\Enum\MusicStyle.cs" />
+    <Compile Include="BusinessObjects\Info\Region.cs" />
     <Compile Include="BusinessObjects\Account\UserAccountBinding.cs" />
     <Compile Include="BusinessObjects\Enum\AccountPlatform.cs" />
     <Compile Include="BusinessObjects\Enum\Gender.cs" />
     <Compile Include="BusinessObjects\Account\User.cs" />
+    <Compile Include="BusinessObjects\Info\Tag.cs" />
+    <Compile Include="BusinessObjects\Media\Album.cs" />
     <Compile Include="BusinessObjects\Media\Song.cs" />
-    <Compile Include="BusinessObjects\Methods\UserAccountBindingHelper.cs" />
-    <Compile Include="BusinessObjects\Record\SongPlayRecord.cs" />
+    <Compile Include="Methods\UserAccountBindingHelper.cs" />
+    <Compile Include="BusinessObjects\Account\UserPlayRecord.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Language\Lang.cs" />
     <Compile Include="Module.cs">
@@ -133,7 +138,6 @@
     <Content Include="Welcome.html" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BusinessObjects\Base\" />
     <Folder Include="BusinessObjects\Impl\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

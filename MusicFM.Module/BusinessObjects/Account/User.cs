@@ -15,18 +15,15 @@ using MusicFM.Module.Language;
 using MusicFM.Module.BusinessObjects.Enum;
 using MusicFM.Module.BusinessObjects.Account;
 using MusicFM.Module.BusinessObjects.Record;
+using MusicFM.Module.BusinessObjects.Info;
 
 namespace MusicFM.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    //[ImageName("BO_Contact")]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
-    //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
-    //[Persistent("DatabaseTableName")]
-    // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
     [ModelDefault("Caption", Lang.BO_USER)]
+    [DefaultProperty("Name")]
     public class User : People
-    { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
+    {
         public User(Session session)
             : base(session)
         {
@@ -49,7 +46,6 @@ namespace MusicFM.Module.BusinessObjects
         [ModelDefault("AllowEdit", "false")]
         [ModelDefault("Caption", Lang.BO_USER_LASTLOGINON)]
         public DateTime LastLoginOn { get; set; }
-
         [ModelDefault("AllowEdit", "false")]
         [ModelDefault("Caption", Lang.BO_USER_LASTMODIFYON)]
         public DateTime LastModifyOn { get; set; }
@@ -57,18 +53,39 @@ namespace MusicFM.Module.BusinessObjects
         [ModelDefault("Caption", Lang.BO_USER_SIGN)]
         public string Sign { get; set; }
 
-        [ModelDefault("Caption", Lang.BO_USER_USERACCOUNTBINDINGS)]
+        [ModelDefault("Caption", Lang.BO_USER_FOLLOWS)]
         [Association]
+        public XPCollection<User> Follows
+        {
+            get { return GetCollection<User>("Follows"); }
+        }
+
+        [ModelDefault("Caption", Lang.BO_USER_FANS)]
+        [Association]
+        public XPCollection<User> Fans
+        {
+            get { return GetCollection<User>("Fans");  }
+        }
+
+        [ModelDefault("Caption", Lang.BO_USER_USERACCOUNTBINDINGS)]
+        [Association, DevExpress.Xpo.Aggregated]
         public XPCollection<UserAccountBinding> AccountBindings
         {
             get { return GetCollection<UserAccountBinding>("AccountBindings"); }
         }
 
         [ModelDefault("Caption", Lang.BO_USER_SONGPLAYRECORD)]
-        [Association]
+        [Association, DevExpress.Xpo.Aggregated]
         public XPCollection<SongPlayRecord> SongPlayRecords
         {
             get { return GetCollection<SongPlayRecord>("SongPlayRecords"); }
+        }
+
+        [ModelDefault("Caption", Lang.BO_USER_COMMENTS)]
+        [Association, DevExpress.Xpo.Aggregated]
+        public XPCollection<Comment> Comments
+        {
+            get { return GetCollection<Comment>("Comments"); }
         }
     }
 }

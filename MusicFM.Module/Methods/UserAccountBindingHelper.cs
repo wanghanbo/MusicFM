@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MusicFM.Module.BusinessObjects.Methods
+namespace MusicFM.Module.Methods
 {
     public static class UserAccountBindingHelper
     {

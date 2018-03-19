@@ -18,7 +18,9 @@ namespace MusicFM.Module.BusinessObjects.Account
 {
     [DefaultClassOptions]
     [ModelDefault("Caption", Lang.BO_USERACCOUNT_BINDING)]
-    [NavigationItem("false")]
+    [NavigationItem(false)]
+    [CreatableItem(false)]
+    [DefaultProperty("ID")]
     public class UserAccountBinding : BaseObject
     { 
         public UserAccountBinding(Session session)
@@ -32,10 +34,12 @@ namespace MusicFM.Module.BusinessObjects.Account
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
+        [RuleRequiredField("RequiredRule_UserAccount_Platform", DefaultContexts.Save, Lang.BO_PEOPLE_ID_REQUIRED)]
         [ModelDefault("AllowEdit", "false")]
         [ModelDefault("Caption", Lang.BO_USERACCOUNT_PLATFORM)]
         public AccountPlatform Platform { get; set; }
 
+        [RuleRequiredField("RequiredRule_UserAccount_ID", DefaultContexts.Save, Lang.BO_PEOPLE_NAME_REQUIRED)]
         [ModelDefault("AllowEdit", "false")]
         [ModelDefault("Caption", Lang.BO_USERACCOUNT_ID)]
         public string ID { get; set; }

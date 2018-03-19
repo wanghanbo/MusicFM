@@ -12,7 +12,8 @@ namespace MusicFM.Module.BusinessObjects.Account
 {
     [DefaultClassOptions]
     [NavigationItem(false)]
-    [DefaultProperty("ID")]
+    [DefaultProperty("Name")]
+    [CreatableItem(false)]
     public class People : BaseObject
     {
         public People(Session session)
@@ -23,16 +24,16 @@ namespace MusicFM.Module.BusinessObjects.Account
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-
-            //todo : Create Unique ID
         }
 
-        [RuleUniqueValue("", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
-        [ModelDefault("AllowEdit", "false")]
-        public string ID { get; private set; }
+        [RuleUniqueValue("UniqueRule_People_ID", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
+        [RuleRequiredField("RequiredRule_People_ID", DefaultContexts.Save, Lang.BO_PEOPLE_ID_REQUIRED)]
+        [ModelDefault("Caption", Lang.BO_ID)]
+        //[ModelDefault("AllowEdit", "false")]
+        public string ID { get; set; }
 
         [RuleUniqueValue("", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
-        [RuleRequiredField("Rule_People_Name", DefaultContexts.Save, Lang.BO_PEOPLE_NAME_REQIURED)]
+        [RuleRequiredField("RequiredRule_People_Name", DefaultContexts.Save, Lang.BO_PEOPLE_NAME_REQUIRED)]
         [ModelDefault("Caption", Lang.BO_PEOPLE_NAME)]
         public string Name { get; set; }
 

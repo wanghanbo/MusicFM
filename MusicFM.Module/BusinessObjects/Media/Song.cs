@@ -13,11 +13,14 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using MusicFM.Module.Language;
 using MusicFM.Module.BusinessObjects.Account;
+using MusicFM.Module.BusinessObjects.Enum;
+using MusicFM.Module.BusinessObjects.Info;
 
 namespace MusicFM.Module.BusinessObjects.Media
 {
     [DefaultClassOptions]
     [ModelDefault("Caption", Lang.BO_SONG)]
+    [DefaultProperty("DisplayName")]
     public class Song : BaseObject
     { 
         public Song(Session session)
@@ -29,11 +32,58 @@ namespace MusicFM.Module.BusinessObjects.Media
             base.AfterConstruction();
         }
 
+        [RuleRequiredField("RequiredRule_Song_Title", DefaultContexts.Save, Lang.BO_SONG_TITLE_REQUIRED)]
         [ModelDefault("Caption", Lang.BO_SONG_TITLE)]
+        [ModelDefault("Index", "1")]
         public string Title { get; set; }
 
         [ModelDefault("Caption", Lang.BO_ARTIST)]
         [Association]
+        [ModelDefault("Index", "2")]
         public Artist Artist { get; set; } 
+
+        [ModelDefault("Caption", Lang.BO_SONG_STYLE)]
+        public MusicStyle Style { get; set; }
+
+        [ModelDefault("Caption", Lang.BO_TAG)]
+        [Association, DevExpress.Xpo.Aggregated]
+        public XPCollection<Tag> Tags
+        {
+            get { return GetCollection<Tag>("Tags"); }
+        }
+
+        [ModelDefault("Caption", Lang.BO_ALBUM)]
+        [Association]
+        public XPCollection<Album> Albums
+        {
+            get { return GetCollection<Album>("Albums"); }
+        }
+
+        [ModelDefault("Caption", Lang.BO_COMMENT)]
+        [Association, DevExpress.Xpo.Aggregated]
+        public XPCollection<Comment> Comments
+        {
+            get { return GetCollection<Comment>("Comments"); }
+        }
+
+        [ModelDefault("Caption", Lang.BO_SONG_URL)]
+        public string URL { get; set; }
+
+        [Browsable(false)]
+        [NonPersistent]
+        public string DisplayName
+        {
+            get
+            {
+                if (Title == null || Artist == null)
+                {
+                    return "";
+                }
+                else
+                {
+                    return Title + " - " + Artist.Name;
+                }
+            }
+        }
     }
 }

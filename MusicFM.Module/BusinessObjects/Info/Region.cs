@@ -16,13 +16,9 @@ using MusicFM.Module.Language;
 namespace MusicFM.Module.BusinessObjects.Account
 {
     [DefaultClassOptions]
-    //[ImageName("BO_Contact")]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
-    //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
-    //[Persistent("DatabaseTableName")]
-    // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
     [ModelDefault("Caption", Lang.BO_REGION)]
     [NavigationItem(false)]
+    [DefaultProperty("RegionName")]
     public class Region : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         public Region(Session session)
@@ -34,7 +30,8 @@ namespace MusicFM.Module.BusinessObjects.Account
             base.AfterConstruction();
         }
 
-        //[RuleIsReferenced()]
+        [RuleUniqueValue("UniqueRule_Region_RegionName", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
+        [RuleRequiredField("RequiredRule_Region_RegionName", DefaultContexts.Save, Lang.BO_REGION_REGIONNAME_REQUIRED)]
         [ModelDefault("Caption", Lang.BO_REGION_REGIONNAME)]
         public string RegionName { get; set; }
 
@@ -45,7 +42,7 @@ namespace MusicFM.Module.BusinessObjects.Account
 
         [Browsable(false)]
         [ModelDefault("Caption", Lang.BO_REGION_CHILDREN)]
-        [Association]
+        [Association, DevExpress.Xpo.Aggregated]
         public XPCollection<Region> Children
         {
             get { return GetCollection<Region>("Children"); }
