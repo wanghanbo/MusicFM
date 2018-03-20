@@ -47,9 +47,9 @@ namespace MusicFM.Module.BusinessObjects.Media
 
         [ModelDefault("Caption", Lang.BO_TAG)]
         [Association, DevExpress.Xpo.Aggregated]
-        public XPCollection<Tag> Tags
+        public XPCollection<SongTag> Tags
         {
-            get { return GetCollection<Tag>("Tags"); }
+            get { return GetCollection<SongTag>("Tags"); }
         }
 
         [ModelDefault("Caption", Lang.BO_ALBUM)]
@@ -61,9 +61,9 @@ namespace MusicFM.Module.BusinessObjects.Media
 
         [ModelDefault("Caption", Lang.BO_COMMENT)]
         [Association, DevExpress.Xpo.Aggregated]
-        public XPCollection<Comment> Comments
+        public XPCollection<SongComment> Comments
         {
-            get { return GetCollection<Comment>("Comments"); }
+            get { return GetCollection<SongComment>("Comments"); }
         }
 
         [ModelDefault("Caption", Lang.BO_SONG_URL)]

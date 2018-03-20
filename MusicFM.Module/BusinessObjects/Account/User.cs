@@ -16,6 +16,7 @@ using MusicFM.Module.BusinessObjects.Enum;
 using MusicFM.Module.BusinessObjects.Account;
 using MusicFM.Module.BusinessObjects.Record;
 using MusicFM.Module.BusinessObjects.Info;
+using MusicFM.Module.BusinessObjects.Base;
 
 namespace MusicFM.Module.BusinessObjects
 {
@@ -41,11 +42,12 @@ namespace MusicFM.Module.BusinessObjects
 
         [ModelDefault("AllowEdit", "false")]
         [ModelDefault("Caption", Lang.BO_USER_CREATEON)]
-        public DateTime CreateOn { get; private set; }
+        public DateTime CreateOn { get; set; }
 
         [ModelDefault("AllowEdit", "false")]
         [ModelDefault("Caption", Lang.BO_USER_LASTLOGINON)]
         public DateTime LastLoginOn { get; set; }
+
         [ModelDefault("AllowEdit", "false")]
         [ModelDefault("Caption", Lang.BO_USER_LASTMODIFYON)]
         public DateTime LastModifyOn { get; set; }

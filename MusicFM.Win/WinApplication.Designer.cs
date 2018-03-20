@@ -29,6 +29,8 @@
             this.module4 = new MusicFM.Module.Win.MusicFMWindowsFormsModule();
             this.validationModule1 = new DevExpress.ExpressApp.Validation.ValidationModule();
             this.validationWindowsFormsModule1 = new DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule();
+            this.treeListEditorsModuleBase1 = new DevExpress.ExpressApp.TreeListEditors.TreeListEditorsModuleBase();
+            this.treeListEditorsWindowsFormsModule1 = new DevExpress.ExpressApp.TreeListEditors.Win.TreeListEditorsWindowsFormsModule();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // validationModule1
@@ -46,6 +48,8 @@
             this.Modules.Add(this.module4);
             this.Modules.Add(this.validationModule1);
             this.Modules.Add(this.validationWindowsFormsModule1);
+            this.Modules.Add(this.treeListEditorsModuleBase1);
+            this.Modules.Add(this.treeListEditorsWindowsFormsModule1);
             this.UseOldTemplates = false;
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.MusicFMWindowsFormsApplication_DatabaseVersionMismatch);
             this.CustomizeLanguagesList += new System.EventHandler<DevExpress.ExpressApp.CustomizeLanguagesListEventArgs>(this.MusicFMWindowsFormsApplication_CustomizeLanguagesList);
@@ -61,5 +65,7 @@
         private MusicFM.Module.Win.MusicFMWindowsFormsModule module4;
         private DevExpress.ExpressApp.Validation.ValidationModule validationModule1;
         private DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule validationWindowsFormsModule1;
+        private DevExpress.ExpressApp.TreeListEditors.TreeListEditorsModuleBase treeListEditorsModuleBase1;
+        private DevExpress.ExpressApp.TreeListEditors.Win.TreeListEditorsWindowsFormsModule treeListEditorsWindowsFormsModule1;
     }
 }

@@ -14,11 +14,11 @@ using DevExpress.Persistent.Validation;
 using MusicFM.Module.BusinessObjects.Media;
 using MusicFM.Module.Language;
 
-namespace MusicFM.Module.BusinessObjects.Info
+namespace MusicFM.Module.BusinessObjects.Base
 {
     [DefaultClassOptions]
     [NavigationItem(false)]
-    //[CreatableItem(false)]
+    [CreatableItem(false)]
     [ModelDefault("Caption", Lang.BO_COMMENT)]
     [DefaultProperty("Content")]
     public class Comment : BaseObject
@@ -45,14 +45,7 @@ namespace MusicFM.Module.BusinessObjects.Info
         [ModelDefault("Caption", Lang.BO_COMMENT_CONTENT)]
         public String Content { get; set; }
 
-        [ModelDefault("Caption", Lang.BO_SONG)]
-        [Association]
-        public Song Song { get; set; }
-
-        [ModelDefault("Caption", Lang.BO_ALBUM)]
-        [Association]
-        public Album Album { get; set; }
-
+        [Browsable(false)]
         [Association]
         public Comment ParentComment { get; set; }
 
@@ -61,5 +54,8 @@ namespace MusicFM.Module.BusinessObjects.Info
         {
             get { return GetCollection<Comment>("Replies"); }
         }
+
+        [ModelDefault("Caption", Lang.BO_COMMENT_NICECOUNT)]
+        public int NiceCount { get; set; }
     }
 }

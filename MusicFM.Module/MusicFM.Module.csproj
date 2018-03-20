@@ -84,7 +84,8 @@
   <ItemGroup>
     <Compile Include="BusinessObjects\Account\Artist.cs" />
     <Compile Include="BusinessObjects\Base\People.cs" />
-    <Compile Include="BusinessObjects\Info\Comment.cs" />
+    <Compile Include="BusinessObjects\Base\Comment.cs" />
+    <Compile Include="BusinessObjects\Info\AlbumComment.cs" />
     <Compile Include="BusinessObjects\Info\Company.cs" />
     <Compile Include="BusinessObjects\Enum\MusicStyle.cs" />
     <Compile Include="BusinessObjects\Info\Region.cs" />
@@ -92,7 +93,9 @@
     <Compile Include="BusinessObjects\Enum\AccountPlatform.cs" />
     <Compile Include="BusinessObjects\Enum\Gender.cs" />
     <Compile Include="BusinessObjects\Account\User.cs" />
-    <Compile Include="BusinessObjects\Info\Tag.cs" />
+    <Compile Include="BusinessObjects\Info\SongComment.cs" />
+    <Compile Include="BusinessObjects\Base\Tag.cs" />
+    <Compile Include="BusinessObjects\Info\SongTag.cs" />
     <Compile Include="BusinessObjects\Media\Album.cs" />
     <Compile Include="BusinessObjects\Media\Song.cs" />
     <Compile Include="Methods\UserAccountBindingHelper.cs" />

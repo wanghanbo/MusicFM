@@ -17,6 +17,7 @@ using MusicFM.Module.Language;
 namespace MusicFM.Module.BusinessObjects.Info
 {
     [DefaultClassOptions]
+    [DefaultProperty("CompanyName")]
     [ModelDefault("Caption", Lang.BO_COMPANY)]
     public class Company : BaseObject
     { 
@@ -30,7 +31,7 @@ namespace MusicFM.Module.BusinessObjects.Info
         }
 
         [RuleUniqueValue("UniqueRule_Company_Name", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
-        [RuleRequiredField("RqueiredRule_Company_Name", DefaultContexts.Save, Lang.BO_COMPANY_NAME_REQUIRED)]
+        [RuleRequiredField("RequiredRule_Company_Name", DefaultContexts.Save, Lang.BO_COMPANY_NAME_REQUIRED)]
         [ModelDefault("Caption", Lang.BO_COMPANY_NAME)]
         public string CompanyName { get; set; }
 

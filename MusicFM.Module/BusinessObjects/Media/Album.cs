@@ -52,9 +52,9 @@ namespace MusicFM.Module.BusinessObjects.Media
 
         [ModelDefault("Caption", Lang.BO_COMMENT)]
         [Association, DevExpress.Xpo.Aggregated]
-        public XPCollection<Comment> Comments
+        public XPCollection<AlbumComment> Comments
         {
-            get { return GetCollection<Comment>("Comments"); }
+            get { return GetCollection<AlbumComment>("Comments"); }
         }
     }
 }

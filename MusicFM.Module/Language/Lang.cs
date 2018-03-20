@@ -86,5 +86,6 @@ namespace MusicFM.Module.Language
         public const string BO_COMMENT = "评论";
         public const string BO_COMMENT_TIME = "评论时间";
         public const string BO_COMMENT_CONTENT = "内容";
+        public const string BO_COMMENT_NICECOUNT = "赞";
     }
 }

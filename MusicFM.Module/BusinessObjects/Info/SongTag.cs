@@ -11,32 +11,30 @@ using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
-using MusicFM.Module.Language;
 using MusicFM.Module.BusinessObjects.Media;
 
 namespace MusicFM.Module.BusinessObjects.Info
 {
     [DefaultClassOptions]
-    [ModelDefault("Caption", Lang.BO_TAG)]
+    [NavigationItem(false)]
+    [CreatableItem(false)]
     [DefaultProperty("TagName")]
-    public class Tag : BaseObject
-    { 
-        public Tag(Session session)
+    public class SongTag : Tag
+    { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
+        public SongTag(Session session)
             : base(session)
         {
         }
         public override void AfterConstruction()
         {
             base.AfterConstruction();
+            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-        [RuleUniqueValue("UniqueRule_Tag_TagName", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
-        [RuleRequiredField("RequiredRule_Tag_TagName", DefaultContexts.Save, Lang.BO_TAG_TAGNAME_REQUIRED)]
-        [ModelDefault("Caption", Lang.BO_TAG)]
-        public string TagName { get; set; }
-
+        [RuleRequiredField("RequiredRule_SongTag_Song", DefaultContexts.Save, "")]
         [Association]
-        public XPCollection<Song> Songs { 
+        public XPCollection<Song> Songs
+        {
             get { return GetCollection<Song>("Songs"); }
         }
     }

@@ -12,14 +12,15 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using MusicFM.Module.Language;
+using DevExpress.Persistent.Base.General;
 
 namespace MusicFM.Module.BusinessObjects.Account
 {
     [DefaultClassOptions]
     [ModelDefault("Caption", Lang.BO_REGION)]
-    [NavigationItem(false)]
+    //[NavigationItem(false)]
     [DefaultProperty("RegionName")]
-    public class Region : BaseObject
+    public class Region : BaseObject, ITreeNode
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         public Region(Session session)
             : base(session)
@@ -35,12 +36,13 @@ namespace MusicFM.Module.BusinessObjects.Account
         [ModelDefault("Caption", Lang.BO_REGION_REGIONNAME)]
         public string RegionName { get; set; }
 
-        [Browsable(false)]
+        [ModelDefault("AllowEdit", "false")]
+        //[Browsable(false)]
         [ModelDefault("Caption", Lang.BO_REGION_PARENT)]
         [Association]
         public Region Parent { get; set; }
 
-        [Browsable(false)]
+        //[Browsable(false)]
         [ModelDefault("Caption", Lang.BO_REGION_CHILDREN)]
         [Association, DevExpress.Xpo.Aggregated]
         public XPCollection<Region> Children
@@ -54,5 +56,11 @@ namespace MusicFM.Module.BusinessObjects.Account
         {
             get { return Parent != null ? Parent.FullName + this.RegionName : this.RegionName; }
         }
+
+        string ITreeNode.Name => RegionName;
+
+        ITreeNode ITreeNode.Parent => this.Parent;
+
+        IBindingList ITreeNode.Children => this.Children;
     }
 }
