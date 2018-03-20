@@ -32,6 +32,7 @@ namespace MusicFM.Module.BusinessObjects.Info
             base.AfterConstruction();
         }
 
+        [Size(32)]
         [RuleUniqueValue("UniqueRule_Tag_TagName", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
         [RuleRequiredField("RequiredRule_Tag_TagName", DefaultContexts.Save, Lang.BO_TAG_TAGNAME_REQUIRED)]
         [ModelDefault("Caption", Lang.BO_TAG)]

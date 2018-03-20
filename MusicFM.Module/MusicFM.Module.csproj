@@ -86,6 +86,7 @@
     <Compile Include="BusinessObjects\Base\People.cs" />
     <Compile Include="BusinessObjects\Base\Comment.cs" />
     <Compile Include="BusinessObjects\Info\AlbumComment.cs" />
+    <Compile Include="BusinessObjects\Info\ArtistShow.cs" />
     <Compile Include="BusinessObjects\Info\Company.cs" />
     <Compile Include="BusinessObjects\Enum\MusicStyle.cs" />
     <Compile Include="BusinessObjects\Info\Region.cs" />

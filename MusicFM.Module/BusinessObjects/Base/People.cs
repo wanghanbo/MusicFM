@@ -32,6 +32,7 @@ namespace MusicFM.Module.BusinessObjects.Account
         //[ModelDefault("AllowEdit", "false")]
         public string ID { get; set; }
 
+        [Size(32)]
         [RuleUniqueValue("", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
         [RuleRequiredField("RequiredRule_People_Name", DefaultContexts.Save, Lang.BO_PEOPLE_NAME_REQUIRED)]
         [ModelDefault("Caption", Lang.BO_PEOPLE_NAME)]

@@ -52,6 +52,7 @@ namespace MusicFM.Module.BusinessObjects
         [ModelDefault("Caption", Lang.BO_USER_LASTMODIFYON)]
         public DateTime LastModifyOn { get; set; }
 
+        [Size(256)]
         [ModelDefault("Caption", Lang.BO_USER_SIGN)]
         public string Sign { get; set; }
 

@@ -30,6 +30,7 @@ namespace MusicFM.Module.BusinessObjects.Info
             base.AfterConstruction();
         }
 
+        [Size(32)]
         [RuleUniqueValue("UniqueRule_Company_Name", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
         [RuleRequiredField("RequiredRule_Company_Name", DefaultContexts.Save, Lang.BO_COMPANY_NAME_REQUIRED)]
         [ModelDefault("Caption", Lang.BO_COMPANY_NAME)]

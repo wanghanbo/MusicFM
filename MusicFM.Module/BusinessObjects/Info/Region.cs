@@ -31,6 +31,7 @@ namespace MusicFM.Module.BusinessObjects.Account
             base.AfterConstruction();
         }
 
+        [Size(32)]
         [RuleUniqueValue("UniqueRule_Region_RegionName", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
         [RuleRequiredField("RequiredRule_Region_RegionName", DefaultContexts.Save, Lang.BO_REGION_REGIONNAME_REQUIRED)]
         [ModelDefault("Caption", Lang.BO_REGION_REGIONNAME)]

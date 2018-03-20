@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MusicFM.Module.Language
+﻿namespace MusicFM.Module.Language
 {
     public class Lang
     {
@@ -20,7 +14,7 @@ namespace MusicFM.Module.Language
         public const string ENUM_GENDER_MALE = "男";
         public const string ENUM_GENDER_FEMALE = "女";
 
-        public const string BO_PEOPLE = "";
+        public const string BO_PEOPLE = "基本信息";
         public const string BO_PEOPLE_NAME = "名称";
         public const string BO_PEOPLE_GENDER = "性别";
         public const string BO_PEOPLE_BIRTHDAY = "生日";
@@ -40,6 +34,12 @@ namespace MusicFM.Module.Language
 
         public const string BO_ARTIST = "艺术家";
         public const string BO_ARTIST_BRIEF = "简介";
+        public const string BO_ARTIST_DETIALINFO = "详细信息";
+
+        public const string BO_ARTISTSHOW = "演出";
+        public const string BO_ARTISTSHOW_TITLE = "标题";
+        public const string BO_ARTISTSHOW_SHOWTIME = "演出时间";
+        public const string BO_ARTISTSHOW_ADDRESS = "详细地址";
 
         public const string BO_SONG = "歌曲";
         public const string BO_SONG_TITLE = "标题";

@@ -13,6 +13,7 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using MusicFM.Module.BusinessObjects.Media;
 using MusicFM.Module.Language;
+using DevExpress.Persistent.Base.General;
 
 namespace MusicFM.Module.BusinessObjects.Base
 {
@@ -21,7 +22,7 @@ namespace MusicFM.Module.BusinessObjects.Base
     [CreatableItem(false)]
     [ModelDefault("Caption", Lang.BO_COMMENT)]
     [DefaultProperty("Content")]
-    public class Comment : BaseObject
+    public class Comment : BaseObject, ITreeNode
     { 
         public Comment(Session session)
             : base(session)
@@ -41,6 +42,7 @@ namespace MusicFM.Module.BusinessObjects.Base
         [ModelDefault("Caption", Lang.BO_COMMENT_TIME)]
         public DateTime Time { get; set; }
 
+        [Size(128)]
         [RuleRequiredField("RequiredRule_Comment_Content", DefaultContexts.Save, "")]
         [ModelDefault("Caption", Lang.BO_COMMENT_CONTENT)]
         public String Content { get; set; }
@@ -57,5 +59,11 @@ namespace MusicFM.Module.BusinessObjects.Base
 
         [ModelDefault("Caption", Lang.BO_COMMENT_NICECOUNT)]
         public int NiceCount { get; set; }
+
+        public string Name => Content;
+
+        public ITreeNode Parent => this.ParentComment;
+
+        public IBindingList Children => this.Replies;
     }
 }
