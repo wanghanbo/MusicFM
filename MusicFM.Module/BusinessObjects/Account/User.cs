@@ -90,5 +90,10 @@ namespace MusicFM.Module.BusinessObjects
         {
             get { return GetCollection<Comment>("Comments"); }
         }
+
+        public override string GetIDPrefix()
+        {
+            return "US";
+        }
     }
 }

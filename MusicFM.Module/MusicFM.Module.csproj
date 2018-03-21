@@ -83,8 +83,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\Account\Artist.cs" />
+    <Compile Include="BusinessObjects\Base\KeyValue.cs" />
     <Compile Include="BusinessObjects\Base\People.cs" />
     <Compile Include="BusinessObjects\Base\Comment.cs" />
+    <Compile Include="BusinessObjects\Base\UniqueIdObject.cs" />
     <Compile Include="BusinessObjects\Info\AlbumComment.cs" />
     <Compile Include="BusinessObjects\Info\ArtistShow.cs" />
     <Compile Include="BusinessObjects\Info\Company.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="BusinessObjects\Info\SongTag.cs" />
     <Compile Include="BusinessObjects\Media\Album.cs" />
     <Compile Include="BusinessObjects\Media\Song.cs" />
+    <Compile Include="Methods\DBKeyValueHelper.cs" />
     <Compile Include="Methods\UserAccountBindingHelper.cs" />
     <Compile Include="BusinessObjects\Account\UserPlayRecord.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />

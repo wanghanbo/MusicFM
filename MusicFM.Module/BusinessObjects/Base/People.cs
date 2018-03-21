@@ -3,6 +3,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
+using MusicFM.Module.BusinessObjects.Base;
 using MusicFM.Module.BusinessObjects.Enum;
 using MusicFM.Module.Language;
 using System;
@@ -14,7 +15,7 @@ namespace MusicFM.Module.BusinessObjects.Account
     [NavigationItem(false)]
     [DefaultProperty("Name")]
     [CreatableItem(false)]
-    public class People : BaseObject
+    public class People : UniqueIdObject
     {
         public People(Session session)
             : base(session)
@@ -26,11 +27,11 @@ namespace MusicFM.Module.BusinessObjects.Account
             base.AfterConstruction();
         }
 
-        [RuleUniqueValue("UniqueRule_People_ID", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
-        [RuleRequiredField("RequiredRule_People_ID", DefaultContexts.Save, Lang.BO_PEOPLE_ID_REQUIRED)]
-        [ModelDefault("Caption", Lang.BO_ID)]
-        //[ModelDefault("AllowEdit", "false")]
-        public string ID { get; set; }
+        public override string GetIDPrefix()
+        {
+            //throw new NotImplementedException();
+            return "PE";
+        }
 
         [Size(32)]
         [RuleUniqueValue("", DefaultContexts.Save, CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]

@@ -31,18 +31,6 @@ namespace MusicFM.Module.BusinessObjects.Account
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-
-            //Artist artist = Session.Evaluate<Artist>(CriteriaOperator.Parse("Max(ID)"), null) as Artist;
-            //if (artist == null)
-            //{
-            //    artist.ID = 1.ToString("n6");
-            //}
-            //else
-            //{
-            //    int current = Convert.ToInt32(artist.ID);
-            //    current += 1;
-            //    artist.ID = current.ToString("n6");
-            //}
         }
 
         [ModelDefault("Caption", Lang.BO_SONG)]
@@ -57,22 +45,22 @@ namespace MusicFM.Module.BusinessObjects.Account
 
         [Size(1024)]
         [Browsable(false)]
-        public string DetialInfo1 { get; set; }
+        public string DetailInfo1 { get; set; }
 
         [Size(1024)]
         [Browsable(false)]
-        public string DetialInfo2 { get; set; }
+        public string DetailInfo2 { get; set; }
 
         [Size(1024)]
         [Browsable(false)]
-        public string DetialInfo3 { get; set; }
+        public string DetailInfo3 { get; set; }
 
         [Size(3096)]
         [NonPersistent]
         [ModelDefault("Caption", Lang.BO_ARTIST_DETIALINFO)]
-        public string DetialInfo
+        public string DetailInfo
         {
-            get { return DetialInfo1 + DetialInfo2 + DetialInfo3; }
+            get { return DetailInfo1 + DetailInfo2 + DetailInfo3; }
             set
             {
                 string p1 = "", p2 = "", p3 = "";
@@ -86,9 +74,9 @@ namespace MusicFM.Module.BusinessObjects.Account
                     p3 = value.Substring(2048, Math.Min(value.Length - 2048, 1024));
                 }
 
-                DetialInfo1 = p1;
-                DetialInfo2 = p2;
-                DetialInfo3 = p3;
+                DetailInfo1 = p1;
+                DetailInfo2 = p2;
+                DetailInfo3 = p3;
             }
         }
 
@@ -97,6 +85,11 @@ namespace MusicFM.Module.BusinessObjects.Account
         public XPCollection<ArtistShow> Shows
         {
             get { return GetCollection<ArtistShow>("Shows"); }
+        }
+
+        public override string GetIDPrefix()
+        {
+            return "AR";
         }
     }
 }
